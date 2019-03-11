@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="plato" type="com.cristian_developer.toma_la_orden.data.model.Plato"/>
+        <variable name="editPlato" type="io.reactivex.subjects.PublishSubject"/>
+        <variable name="deletePlato" type="io.reactivex.subjects.PublishSubject"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/fotoPlato"
+                app:imgBase64="@{plato.foto}"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/nombrePlato"
+                android:text="@{plato.nombre}"
+                tools:text="@string/plato_name_text"
+                app:layout_constraintTop_toTopOf="@+id/fotoPlato"
+                app:layout_constraintBottom_toBottomOf="@+id/fotoPlato"
+                app:layout_constraintStart_toEndOf="@+id/fotoPlato" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/editarPlato" android:layout_marginEnd="8dp"
+                android:gravity="left"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_delete"
+                android:id="@+id/borrarPlato"
+                android:onClick="@{()-> deletePlato.onNext(plato)}"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/ic_edit"
+                android:id="@+id/editarPlato"
+                android:onClick="@{()-> editPlato.onNext(plato)}"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/borrarPlato" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/PrecioPlato"
+                android:text="@{plato.precio}"
+                app:layout_constraintTop_toBottomOf="@+id/nombrePlato"
+                app:layout_constraintStart_toStartOf="@+id/nombrePlato"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" tools:text="@string/plate_price_text"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

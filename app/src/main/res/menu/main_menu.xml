@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/main_menu_add_item" android:id="@+id/mainMenuAddItem"
+          android:icon="@drawable/ic_add_item"/>
+    <item android:id="@+id/mainMenuLogout" android:title="@string/logout_text" android:icon="@drawable/ic_logout"
+    />
+</menu>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">TomaLaOrden</string>
+    <string name="email_text">Email</string>
+    <string name="password_text">Password</string>
+    <string name="login_text">Iniciar Sesión</string>
+    <string name="register_text">Registrarme</string>
+    <string name="signup_text">Registrarse</string>
+    <string name="name_text">Nombre</string>
+    <string name="cellphone_text">Celular</string>
+    <string name="empty_fields">No debe haber campos vacios</string>
+    <string name="cancel_text">Cancelar</string>
+    <string name="logout_text">Cerrar Sesión</string>
+    <string name="alert_text">Alerta</string>
+    <string name="logout_message">¿Seguro desea cerrar sesión?</string>
+    <string name="plate_delete_message">¿Seguro desea eliminar el plato?</string>
+    <string name="main_menu_add_item">Platos</string>
+    <string name="main_menu_orders">Ordenes</string>
+    <string name="plato_name_text">Nombre del plato</string>
+    <string name="plate_added">Agregado, deslice hacia abajo para actualizar.</string>
+    <string name="plate_edited">Editado, deslice hacia abajo para actualizar.</string>
+    <string name="new_plate">Nuevo plato</string>
+    <string name="edit_plate">Editar plato</string>
+    <string name="list_plate">Lista de platos</string>
+    <string name="plate_deleted">Plato eliminado.</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="plate_name_text">Nombre del plato</string>
+    <string name="plate_price_text">Precio</string>
+    <string name="save_text">Guardar</string>
+    <string name="accept_text">Aceptar</string>
+    <string name="teble_text">Mesa</string>
+    <string name="date_text">FECHA:</string>
+    <string name="plates_text">PLATOS:</string>
+</resources>

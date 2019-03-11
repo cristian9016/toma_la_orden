@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.new_order.NewOrderActivity">
+
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:id="@+id/newOrderPlates"
+            app:layout_constraintBottom_toTopOf="@+id/btnCancelOrder"
+            app:layout_constraintTop_toBottomOf="@+id/plateSelections" tools:listitem="@layout/template_plato"/>
+    <Button
+            android:text="@string/accept_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAcceptOrder"
+            app:layout_constraintTop_toTopOf="@+id/btnCancelOrder" app:layout_constraintStart_toEndOf="@+id/btnCancelOrder"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/button_ripple" android:textColor="@color/white"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+    <Button
+            android:text="@string/cancel_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCancelOrder"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/btnAcceptOrder" android:background="@drawable/button_ripple"
+            android:textColor="@color/white" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/plateSelections"
+            tools:listitem="@layout/template_plato" android:scrollbars="horizontal"/>
+</android.support.constraint.ConstraintLayout>

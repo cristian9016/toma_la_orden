@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_width">120dp</dimen>
+    <dimen name="login_height">120dp</dimen>
+    <dimen name="size_50">50dp</dimen>
+    <dimen name="shape_size">24dp</dimen>
+</resources>
