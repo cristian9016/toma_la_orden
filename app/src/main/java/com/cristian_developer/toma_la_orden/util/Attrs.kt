@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import java.text.SimpleDateFormat
 import java.util.*
 

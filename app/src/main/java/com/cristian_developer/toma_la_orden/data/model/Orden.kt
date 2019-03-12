@@ -11,4 +11,4 @@ class Orden(val _id:String?,
 //            val platos:MutableList<Plato>,
             val platos:String,
             val mesa:String,
-            val estado:String):Parcelable
+            var estado:String):Parcelable

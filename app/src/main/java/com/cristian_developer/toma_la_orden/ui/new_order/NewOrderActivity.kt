@@ -14,9 +14,7 @@ import com.cristian_developer.toma_la_orden.data.preferences.UserSession
 import com.cristian_developer.toma_la_orden.databinding.TemplateFinishOrderBinding
 import com.cristian_developer.toma_la_orden.ui.adapters.PlatoAdapter
 import com.cristian_developer.toma_la_orden.ui.adapters.PlatoSelectedAdapter
-import com.cristian_developer.toma_la_orden.util.LifeDisposable
-import com.cristian_developer.toma_la_orden.util.buildViewModel
-import com.cristian_developer.toma_la_orden.util.toText
+import com.cristian_developer.toma_la_orden.util.*
 import com.jakewharton.rxbinding3.view.clicks
 import kotlinx.android.synthetic.main.activity_new_order.*
 import org.jetbrains.anko.alert
@@ -79,6 +77,7 @@ class NewOrderActivity : AppCompatActivity() {
                     bind.orderList.setText(orders.toString())
                     customView = bind.root
                     yesButton {
+                        progressBar.visible()
                         dis add viewModel.addOrder(
                             UserSession.token,
                             Orden(null, null, Date(), orders.toString(), bind.tableNumber.toText(), "pendiente")
@@ -86,11 +85,13 @@ class NewOrderActivity : AppCompatActivity() {
                             .subscribe(
                                 {
                                     if(it){
+                                        progressBar.gone()
                                         toast("Orden Agregada y pendiente")
                                         finish()
                                     }
                                 },
                                 {
+                                    progressBar.gone()
                                     toast(it.message!!)
                                 }
                             )
@@ -103,13 +104,16 @@ class NewOrderActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        progressBar.visible()
         btnCancelOrder.setOnClickListener { finish() }
         dis add viewModel.getPlates(UserSession.token)
             .subscribe(
                 {
+                    progressBar.gone()
                     listPlatesAdapter.data = it.toMutableList()
                 },
                 {
+                    progressBar.gone()
                     toast(it.message!!)
                 }
             )

@@ -11,7 +11,7 @@ object RetrofitSingleton {
 
     fun init() {
         retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.40.107:8080")
+            .baseUrl("http://192.168.1.107:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .build()

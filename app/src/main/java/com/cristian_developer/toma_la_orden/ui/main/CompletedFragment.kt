@@ -14,7 +14,6 @@ import com.cristian_developer.toma_la_orden.databinding.FragmentCompletedBinding
 import com.cristian_developer.toma_la_orden.ui.adapters.CompleteOrderAdapter
 import com.cristian_developer.toma_la_orden.ui.main.MainActivity.Companion.dis
 import com.cristian_developer.toma_la_orden.ui.main.MainActivity.Companion.viewModel
-import kotlinx.android.synthetic.main.fragment_completed.*
 import org.jetbrains.anko.toast
 
 class CompletedFragment : Fragment() {

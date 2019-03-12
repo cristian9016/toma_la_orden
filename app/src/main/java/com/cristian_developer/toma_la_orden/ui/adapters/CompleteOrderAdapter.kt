@@ -29,6 +29,8 @@ class CompleteOrderAdapter : RecyclerView.Adapter<CompleteOrderAdapter.CompleteO
         val binding: TemplateCompletedOrderBinding = DataBindingUtil.bind(view)!!
         fun bind(orden: Orden) {
             binding.orden = orden
+            if(orden.estado == "completo") binding.orderState.setImageResource(R.drawable.ic_order_complete)
+            else binding.orderState.setImageResource(R.drawable.ic_order_cancel)
         }
     }
 }

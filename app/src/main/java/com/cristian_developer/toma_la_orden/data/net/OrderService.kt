@@ -16,8 +16,8 @@ interface OrderService {
     @POST("/api/v1/orders")
     fun addOrder(@Header("Authorization") token: String, @Body order: Orden): Observable<ResponseBody<Boolean>>
 
-    @DELETE("/api/v1/orders/{id}")
-    fun cancelOrder(@Header("Authorization") token: String, @Path("id") id: String): Observable<ResponseBody<Boolean>>
+//    @DELETE("/api/v1/orders/{id}")
+//    fun cancelOrder(@Header("Authorization") token: String, @Path("id") id: String): Observable<ResponseBody<Boolean>>
 
     @POST("/api/v1/orders/{id}/edit")
     fun updateOrder(@Header("Authorization") token: String, @Path("id") id: String, @Body orden: Orden)
