@@ -29,6 +29,7 @@
     <string name="save_text">Guardar</string>
     <string name="accept_text">Aceptar</string>
     <string name="teble_text">Mesa</string>
+    <string name="aditional_description">Descripcion adicional</string>
     <string name="date_text">FECHA:</string>
     <string name="plates_text">PLATOS:</string>
 </resources>

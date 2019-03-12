@@ -11,6 +11,8 @@ import com.cristian_developer.toma_la_orden.R
 import com.cristian_developer.toma_la_orden.data.model.Orden
 import com.cristian_developer.toma_la_orden.data.model.Plato
 import com.cristian_developer.toma_la_orden.data.preferences.UserSession
+import com.cristian_developer.toma_la_orden.databinding.TemplateAditionalDescriptionBinding
+//import com.cristian_developer.toma_la_orden.databinding.TemplateAditionalDescriptionBinding
 import com.cristian_developer.toma_la_orden.databinding.TemplateFinishOrderBinding
 import com.cristian_developer.toma_la_orden.ui.adapters.PlatoAdapter
 import com.cristian_developer.toma_la_orden.ui.adapters.PlatoSelectedAdapter
@@ -60,6 +62,27 @@ class NewOrderActivity : AppCompatActivity() {
                 selectedPlatesAdapter.data = it
             }
 
+        dis add selectedPlatesAdapter.longClick
+            .subscribe { plato ->
+                alert {
+                    title = "Descripcion adicional"
+                    val binder: TemplateAditionalDescriptionBinding =
+                        DataBindingUtil.inflate(
+                            this@NewOrderActivity.layoutInflater,
+                            R.layout.template_aditional_description,
+                            null,
+                            false
+                        )
+                    customView = binder.root
+                    yesButton {
+                        plateList.remove(plato)
+                        plato.aditionalDescription = binder.aditionalDescription.toText()
+                        plateList.add(plato)
+                    }
+                    noButton {  }
+                }.show()
+            }
+
         dis add btnAcceptOrder.clicks()
             .subscribe {
                 alert {
@@ -72,7 +95,8 @@ class NewOrderActivity : AppCompatActivity() {
                         )
                     val orders = StringBuilder()
                     for (order in selectedPlatesAdapter.data) {
-                        orders.append("- ", order.second, " ", order.first.nombre, "\n")
+                        orders.append("- ", order.second, " ", order.first.nombre,"\n")
+                        if(order.first.aditionalDescription!="") orders.append("(${order.first.aditionalDescription})")
                     }
                     bind.orderList.setText(orders.toString())
                     customView = bind.root

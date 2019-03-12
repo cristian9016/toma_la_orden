@@ -9,16 +9,18 @@ import com.cristian_developer.toma_la_orden.data.model.Plato
 import com.cristian_developer.toma_la_orden.databinding.TemplateSelectedPlatoBinding
 import com.cristian_developer.toma_la_orden.util.inflate
 import com.cristian_developer.toma_la_orden.util.visible
+import com.jakewharton.rxbinding3.view.longClicks
 import io.reactivex.subjects.PublishSubject
 
 class PlatoSelectedAdapter : RecyclerView.Adapter<PlatoSelectedAdapter.PlatoViewHolder>() {
 
-    var data: MutableList<Pair<Plato,Int>> = mutableListOf()
+    var data: MutableList<Pair<Plato, Int>> = mutableListOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
     val onClick = PublishSubject.create<Plato>()
+    val longClick = PublishSubject.create<Plato>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlatoViewHolder =
         PlatoViewHolder(parent.inflate(R.layout.template_selected_plato))
@@ -26,16 +28,21 @@ class PlatoSelectedAdapter : RecyclerView.Adapter<PlatoSelectedAdapter.PlatoView
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: PlatoViewHolder, position: Int) =
-        holder.bind(data[position], onClick)
+        holder.bind(data[position], onClick, longClick)
 
 
     class PlatoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding: TemplateSelectedPlatoBinding = DataBindingUtil.bind(view)!!
-        fun bind(par:Pair<Plato,Int>, onClick: PublishSubject<Plato>) {
+        fun bind(par: Pair<Plato, Int>, onClick: PublishSubject<Plato>, longClick: PublishSubject<Plato>) {
             binding.plato = par.first
             binding.numOrders.visible()
             binding.numOrders.text = par.second.toString()
             binding.onClick = onClick
+            binding.platoContainer.setOnLongClickListener {
+                longClick.onNext(par.first)
+                true
+            }
+//            binding.onLongClick = onLongClick
         }
 
 

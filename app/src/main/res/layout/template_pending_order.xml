@@ -38,24 +38,25 @@
                     app:layout_constraintStart_toStartOf="@+id/textView4"
                     app:layout_constraintEnd_toEndOf="@+id/textView4"/>
             <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:text="@{orden.mesa}"
                     android:id="@+id/textView4" android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" tools:text="50"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" tools:text="500"
                     android:textSize="30dp" android:gravity="center"/>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@{orden.platos}"
-                    android:id="@+id/textView5" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginStart="8dp"
+                    android:id="@+id/textView5"
+                    android:layout_marginStart="8dp"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
                     app:layout_constraintEnd_toStartOf="@+id/textView4"
                     android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="2 Hamburguesas\n1 Cabra\n2 Hamburguesas\n1 Cabra\n2 Hamburguesas\n1 Cabra"/>
+                    tools:text="2 Hamburguesas\n1 Cabra\n2 Hamburguesas\n1 Cabra\n2 Hamburguesas\n1 Cabra"
+                    app:layout_constraintTop_toTopOf="@+id/textView2"/>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
