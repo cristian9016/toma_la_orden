@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TomaLaOrden</string>
+    <string name="app_name">Toma La Orden</string>
     <string name="email_text">Email</string>
     <string name="password_text">Password</string>
     <string name="login_text">Iniciar Sesión</string>
@@ -32,4 +32,5 @@
     <string name="aditional_description">Descripcion adicional</string>
     <string name="date_text">FECHA:</string>
     <string name="plates_text">PLATOS:</string>
+    <string name="order_management_text">Gestión de ordenes</string>
 </resources>

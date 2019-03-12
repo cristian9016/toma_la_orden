@@ -10,41 +10,51 @@
     </data>
     <android.support.constraint.ConstraintLayout
             android:id="@+id/platoContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:onClick="@{()->onClick.onNext(plato)}"
-            >
-        <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@android:color/black"
-                android:id="@+id/fotoPlato"
-                app:imgBase64="@{plato.foto}"
-                android:scaleType="centerCrop"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
-        <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/nombrePlato"
-                app:layout_constraintBottom_toBottomOf="@+id/fotoPlato"
-                app:layout_constraintStart_toStartOf="@+id/fotoPlato"
-                app:layout_constraintEnd_toEndOf="@+id/fotoPlato"
-                android:text="@{plato.nombre}"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="@drawable/edit_text_shadow"
-                tools:text="@string/plato_name_text"/>
-        <TextView
-                android:layout_height="@dimen/shape_size"
-                android:id="@+id/numOrders"
-                android:background="@drawable/shape_num_orders" android:layout_width="@dimen/shape_size"
-                app:layout_constraintTop_toTopOf="@+id/fotoPlato" tools:text="10" android:textColor="@color/white"
-                android:textSize="10dp" android:gravity="center"
-                app:layout_constraintBottom_toTopOf="@+id/fotoPlato" app:layout_constraintEnd_toEndOf="@+id/fotoPlato"
-                app:layout_constraintStart_toEndOf="@+id/fotoPlato" android:layout_marginStart="8dp"
-                android:visibility="gone"/>
+            android:layout_marginLeft="8dp" android:layout_marginTop="4dp">
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" app:cardCornerRadius="12dp">
+
+            <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+                                                         android:layout_height="match_parent">
+                <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:srcCompat="@android:color/black"
+                        android:id="@+id/fotoPlato"
+                        app:imgBase64="@{plato.foto}"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nombrePlato"
+                        app:layout_constraintBottom_toBottomOf="@+id/fotoPlato"
+                        app:layout_constraintStart_toStartOf="@+id/fotoPlato"
+                        app:layout_constraintEnd_toEndOf="@+id/fotoPlato"
+                        android:text="@{plato.nombre}"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_shadow"
+                        tools:text="@string/plato_name_text"/>
+                <TextView
+                        android:layout_height="@dimen/shape_size"
+                        android:id="@+id/numOrders"
+                        android:background="@drawable/shape_num_orders" android:layout_width="@dimen/shape_size"
+                        app:layout_constraintTop_toTopOf="@+id/fotoPlato" tools:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" android:gravity="center"
+                        app:layout_constraintEnd_toEndOf="@+id/fotoPlato"
+                        android:visibility="visible"/>
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
     </android.support.constraint.ConstraintLayout>
+
 </layout>

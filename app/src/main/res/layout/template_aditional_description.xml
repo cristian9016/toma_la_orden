@@ -6,13 +6,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/aditionalDescription"
-        android:hint="@string/aditional_description"
-        android:gravity="center"
-        android:layout_gravity="center"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/aditionalDescription"
+                android:hint="@string/aditional_description"
+                android:gravity="center"
+                android:layout_gravity="center" android:inputType="textMultiLine"/>
     </FrameLayout>
 </layout>

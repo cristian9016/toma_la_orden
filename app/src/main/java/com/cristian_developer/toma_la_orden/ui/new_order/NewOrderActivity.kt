@@ -73,13 +73,15 @@ class NewOrderActivity : AppCompatActivity() {
                             null,
                             false
                         )
+                    if(plato.aditionalDescription!=null && plato.aditionalDescription!="")
+                        binder.aditionalDescription.setText(plato.aditionalDescription)
                     customView = binder.root
                     yesButton {
                         plateList.remove(plato)
                         plato.aditionalDescription = binder.aditionalDescription.toText()
                         plateList.add(plato)
                     }
-                    noButton {  }
+                    noButton { }
                 }.show()
             }
 
@@ -95,8 +97,9 @@ class NewOrderActivity : AppCompatActivity() {
                         )
                     val orders = StringBuilder()
                     for (order in selectedPlatesAdapter.data) {
-                        orders.append("- ", order.second, " ", order.first.nombre,"\n")
-                        if(order.first.aditionalDescription!="") orders.append("(${order.first.aditionalDescription})")
+                        orders.append("- ", order.second, " ", order.first.nombre, "\n")
+                        if (order.first.aditionalDescription != null && order.first.aditionalDescription != "")
+                            orders.append("(${order.first.aditionalDescription})\n")
                     }
                     bind.orderList.setText(orders.toString())
                     customView = bind.root
@@ -108,7 +111,7 @@ class NewOrderActivity : AppCompatActivity() {
                         )
                             .subscribe(
                                 {
-                                    if(it){
+                                    if (it) {
                                         progressBar.gone()
                                         toast("Orden Agregada y pendiente")
                                         finish()

@@ -37,6 +37,7 @@ class PendingFragment : Fragment() {
     lateinit var binding: FragmentPendingBinding
     private val adapter: PendingOrderAdapter = PendingOrderAdapter()
     private var cum = 0
+    private var repeat = 0
     private var firstTime = true
 
     override fun onCreateView(
@@ -52,7 +53,7 @@ class PendingFragment : Fragment() {
                     title = "¿Desea Cancelar la orden?"
                     yesButton {
                         progressBarPending.visible()
-                        updateOrder(orden,"cancelado")
+                        updateOrder(orden, "cancelado")
                     }
                     noButton { }
                 }.show()
@@ -64,16 +65,25 @@ class PendingFragment : Fragment() {
         super.onResume()
         progressBarPending.visible()
         getPending()
+        firstTime = true
+
         dis add viewModel.listenSensor(context!!)
             .subscribe {
                 cum += 1
                 if (cum == 1) {
-                    Handler().postDelayed({ cum = 0 }, 2000)
-                    if (!firstTime) {
+                    Handler().postDelayed({ cum = 0}, 1000)
+                    Handler().postDelayed({ repeat = 0}, 5000)
+                    repeat += 1
+                    if (!firstTime && repeat == 2) {
+                        repeat = 0
                         if (adapter.data.isNotEmpty()) {
                             progressBarPending.visible()
                             updateOrder(adapter.data[0], "completo")
+                            context!!.toast("Orden Completa")
                         }
+                    } else {
+                        if (!firstTime)
+                            context!!.toast("Pase de nuevo la mano para confirmar")
                     }
                     firstTime = false
                 }
@@ -87,7 +97,7 @@ class PendingFragment : Fragment() {
         }
     }
 
-    private fun getPending() = dis add viewModel.getPendingOrders(UserSession.token)
+    private fun getPending() = dis add viewModel.listenPendingOrders(UserSession.token)
         .subscribe(
             {
                 progressBarPending.gone()
@@ -101,7 +111,7 @@ class PendingFragment : Fragment() {
             }
         )
 
-    private fun updateOrder(order: Orden,state:String) {
+    private fun updateOrder(order: Orden, state: String) {
         order.estado = state
         dis add viewModel.updateOrder(UserSession.token, order)
             .subscribe({

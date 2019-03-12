@@ -45,8 +45,9 @@ class PendingOrderAdapter : RecyclerView.Adapter<PendingOrderAdapter.PendingOrde
                     }
 
                 }
-
             binding.orden = orden
+            if(orden.mesa=="") binding.mesa.setText("Domicilio")
+            else binding.mesa.setText("Mesa")
         }
     }
 }

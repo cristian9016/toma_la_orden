@@ -8,14 +8,13 @@
         tools:context=".ui.login.LoginActivity">
 
     <ImageView
-            android:layout_width="@dimen/login_width"
+            android:layout_width="0dp"
             android:layout_height="@dimen/login_height"
-            app:srcCompat="@android:color/darker_gray"
             android:id="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" app:srcCompat="@drawable/logo"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="@dimen/size_50"

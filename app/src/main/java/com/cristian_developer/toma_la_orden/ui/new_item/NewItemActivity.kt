@@ -35,10 +35,6 @@ class NewItemActivity : AppCompatActivity() {
             platePrice.setText(plato!!.precio)
             title = getString(R.string.edit_plate)
             image = plato!!.foto
-//            dis add permission().subscribe {
-//                if(it) PhotoUtil.loadImage(this, plato!!)
-//                else toast("Permisos Denegados")
-//            }
         } else title = getString(R.string.new_plate)
 
         binding.image = image

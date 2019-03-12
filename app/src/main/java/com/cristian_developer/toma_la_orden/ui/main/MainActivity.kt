@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        title = getString(R.string.order_management_text)
         dis = LifeDisposable(this)
         viewModel = buildViewModel()
         tabAdapter = MainTabsAdapter(supportFragmentManager)

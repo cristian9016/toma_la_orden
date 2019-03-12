@@ -9,6 +9,8 @@ import com.cristian_developer.toma_la_orden.util.applySchedulers
 import com.cristian_developer.toma_la_orden.util.validateResponse
 import com.github.pwittchen.reactivesensors.library.ReactiveSensorFilter
 import com.github.pwittchen.reactivesensors.library.ReactiveSensors
+import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 
 
 class MainActivityViewModel : ViewModel() {
@@ -19,7 +21,6 @@ class MainActivityViewModel : ViewModel() {
         net.getCompleted(token)
             .flatMap { validateResponse(it) }
             .applySchedulers()
-
     fun getPendingOrders(token: String) =
         net.getPending(token)
             .flatMap { validateResponse(it) }
@@ -35,5 +36,9 @@ class MainActivityViewModel : ViewModel() {
         .filter(ReactiveSensorFilter.filterSensorChanged())
         .applySchedulers()
 
+    fun listenPendingOrders(token: String) =
+        Observable.interval(5000, TimeUnit.MILLISECONDS)
+            .flatMap { getPendingOrders(token) }
+            .applySchedulers()
 
 }
