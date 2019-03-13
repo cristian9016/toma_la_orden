@@ -54,6 +54,7 @@ class PendingFragment : Fragment() {
                     yesButton {
                         progressBarPending.visible()
                         updateOrder(orden, "cancelado")
+                        context!!.toast("Orden Cancelada")
                     }
                     noButton { }
                 }.show()

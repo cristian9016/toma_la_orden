@@ -11,8 +11,8 @@ object RetrofitSingleton {
 
     fun init() {
         retrofit = Retrofit.Builder()
-//            .baseUrl("http://192.168.1.107:8080")
-            .baseUrl("https://fathomless-wave-26084.herokuapp.com")
+            .baseUrl("http://192.168.1.107:8080")
+//            .baseUrl("https://fathomless-wave-26084.herokuapp.com")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .build()
