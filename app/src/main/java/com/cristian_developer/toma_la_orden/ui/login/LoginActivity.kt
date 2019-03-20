@@ -9,6 +9,7 @@ import com.cristian_developer.toma_la_orden.data.model.User
 import com.cristian_developer.toma_la_orden.data.model.UserLogin
 import com.cristian_developer.toma_la_orden.data.preferences.UserSession
 import com.cristian_developer.toma_la_orden.ui.main.MainActivity
+import com.cristian_developer.toma_la_orden.ui.restaurant_list.RestaurantList
 import com.cristian_developer.toma_la_orden.util.*
 import com.jakewharton.rxbinding3.view.clicks
 import com.tbruyelle.rxpermissions2.RxPermissions
@@ -26,7 +27,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         if (UserSession.token != "") {
-            startActivity<MainActivity>()
+            if(UserSession.rol=="admin") startActivity<RestaurantList>()
+            else startActivity<MainActivity>()
             finish()
         }
         dis add RxPermissions(this)
@@ -70,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                 .flatMap {
                     loader.visible()
                     signupGroup.isEnabled = false
-                    viewModel.signup(User(it[0], it[1], it[2], it[3]))
+                    viewModel.signup(User(it[0], it[1], it[2], it[3],"admin"))
                 }
                 .subscribe(
                     {
@@ -103,10 +105,11 @@ class LoginActivity : AppCompatActivity() {
                 }
                 .subscribe(
                     {
-                        startActivity<MainActivity>()
-                        UserSession.token = it
+                        UserSession.token = it.token
+                        UserSession.rol = it.rol
                         loader.gone()
-                        loginGroupEnabled(true)
+                        if(it.rol=="admin") startActivity<RestaurantList>()
+                        else startActivity<MainActivity>()
                         finish()
                     },
                     {

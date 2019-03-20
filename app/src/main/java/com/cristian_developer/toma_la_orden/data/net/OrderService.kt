@@ -7,10 +7,10 @@ import retrofit2.http.*
 
 interface OrderService {
 
-    @GET("/api/v1/orders/{id}/complete")
+    @GET("/api/v1/orders/complete")
     fun getCompleted(@Header("Authorization") token: String): Observable<ResponseBody<List<Orden>>>
 
-    @GET("/api/v1/orders/{id}/pending")
+    @GET("/api/v1/orders/pending")
     fun getPending(@Header("Authorization") token: String): Observable<ResponseBody<List<Orden>>>
 
     @POST("/api/v1/orders")

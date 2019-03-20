@@ -22,6 +22,11 @@
     <string name="edit_plate">Editar plato</string>
     <string name="list_plate">Lista de platos</string>
     <string name="plate_deleted">Plato eliminado.</string>
+    <string name="edit_rest">Editar Restaurante</string>
+    <string name="new_rest">Nuevo Restaurante</string>
+    <string name="restaurante_added">Agregado, deslice hacia abajo para actualizar.</string>
+    <string name="restaurante_edited">Editado, deslice hacia abajo para actualizar.</string>
+    <string name="list_rest">Restaurantes</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="plate_name_text">Nombre del plato</string>
@@ -33,4 +38,5 @@
     <string name="date_text">FECHA:</string>
     <string name="plates_text">PLATOS:</string>
     <string name="order_management_text">Gestión de ordenes</string>
+    <string name="restaurant_name_text">Nombre del restaurante</string>
 </resources>

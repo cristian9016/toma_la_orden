@@ -11,7 +11,7 @@ object RetrofitSingleton {
 
     fun init() {
         retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.107:8080")
+            .baseUrl("http://192.168.1.104:8080")
 //            .baseUrl("https://fathomless-wave-26084.herokuapp.com")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
@@ -21,5 +21,6 @@ object RetrofitSingleton {
     fun getLoginService() = retrofit.create(LoginService::class.java)
     fun getPlateService() = retrofit.create(PlateService::class.java)
     fun getOrderService() = retrofit.create(OrderService::class.java)
+    fun getRestService() = retrofit.create(RestaurantService::class.java)
 
 }

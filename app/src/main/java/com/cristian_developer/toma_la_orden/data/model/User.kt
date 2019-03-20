@@ -8,7 +8,10 @@ class User(
     val nombre: String,
     val celular: String,
     val email: String,
-    val password: String
+    val password: String,
+    val rol: String,
+    val restaurante: String? = null
 ) : Parcelable
 
-class UserLogin(var email: String,var password: String)
+class UserLogin(var email: String, var password: String)
+class UserResponse(var token: String, var rol: String)
